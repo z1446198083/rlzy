@@ -1,0 +1,48 @@
+
+<div class="nav">
+    <div class="nav-warp">
+        <div class="nav-left">
+            <p>欢迎来到{$site_name}~</p>
+        </div>
+        <div class="nav-right">
+            <img src="__STATIC__img/DH.png" />
+            <p><a href="javascript:" onclick="setHome(this,window.location);">设为首页</a></p>
+            <img src="__STATIC__img/收藏.png" />
+            <p><a href="javascript:" onclick="shoucang(document.title,window.location);">加入收藏</a></p>
+            <img src="__STATIC__img/wx.png" />
+            <p><a href="">关注微信</a></p>
+        </div>
+    </div>
+</div>
+
+<!--logo-->
+<div class="logo">
+    <div class="logo-warp">
+        <div class="logo-warp-left"><img src="{:attach($logo, 'logo')}" /></div>
+        <div class="logo-warp-right">
+            <p>欢迎来到{$site_name}，你是第<span>{$number.number}</span>个访问我们网站的人哦！</p>
+        </div>
+    </div>
+</div>
+
+<!--导航栏-->
+<div class="navigation">
+    <div class="navigation-warp">
+<ul>
+        <volist name="ar_cate" id="vo">
+        <li>
+            <a href="">{$vo.name}</a>
+            <ul>
+                <volist name="article_erji" id="v">
+                <if condition="$vo['id'] eq $v['pid']">
+                <li>
+                    <a href="#">{$v.name}</a>
+                </li>
+                </if>
+                </volist>
+            </ul>
+        </li>
+        </volist>
+</ul>
+    </div>
+</div>

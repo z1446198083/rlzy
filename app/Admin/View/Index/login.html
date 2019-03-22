@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link href="__PUBLIC_ADMIN__css/style.css" rel="stylesheet"/>
+	<title>管理中心</title>
+</head>
+
+<body style="background-color:#1c77ac; background-image:url(__PUBLIC_ADMIN__css/bgimg/light.png);">
+<div class="loginbody">
+<div class="loginbox">
+<form action="{:U('index/login')}" method="post" id="myform"   style="padding:100px 0 0 280px;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="16%">用户名：</td>
+    <td colspan="2"><input class="text user" type="text" name="username" id="username" ></td>
+  </tr>
+  <tr>
+    <td>密码：</td>
+    <td colspan="2" style="padding:10px 0;"><input class="text pass" type="password" name="password" id="password" /></td>
+  </tr>
+  <tr>
+    <td>{$Think.lang.verify_code}：</td>
+    <td colspan="2" style="padding:10px 0;"><input class="text vifity" type="text" name="verify_code" id="verify_code" style="width:80px; height:26px; border:1px solid #DBDCDD;" /><img title="{$Think.lang.refresh_verify_code}" class="verify_img" src="{:U('index/verify_code', array('t'=>time()))}" style="padding-left: 10px;" /></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td colspan="2" style="padding:10px 0 0;"><input  type="hidden" name="do" value="<?php echo $_REQUEST['selflink'];?>"/>
+				<button type="submit" class="btn1 btn-primary " id="bsubmit">登陆</button></td>
+  </tr>
+</table>
+
+</form>
+</div>
+</div>
+<script language="javascript" type="text/javascript" src="__PUBLIC_ADMIN__js/jquery/jquery.js"></script>
+<script>
+$(function(){
+    if(self != top){
+        top.location = self.location;
+    }
+    
+    $(".verify_img").click(function(){
+        var timenow = new Date().getTime();
+        $(this).attr("src","{:U('index/verify_code/?t='.time())}")
+    });
+});
+</script>
+</body>
+</html>

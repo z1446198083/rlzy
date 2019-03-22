@@ -1,0 +1,120 @@
+<include file="Public:header" />
+<!--网站设置-->
+<div class="pad_lr_10">
+	<form id="info_form" action="{:u('setting/edit')}" method="post"  enctype="multipart/form-data">
+	<table width="100%" class="table_form">
+        <tr>
+            <th width="150">{:L('site_name')} :</th>
+            <td><input type="text" name="setting[site_name]" class="input-text" size="50" value="{:C('pin_site_name')}"></td>
+        </tr>
+        <tr>
+            <th>{:L('seo_slogan')} :</th>
+            <td><input type="text" name="setting[site_slogan]" class="input-text" size="50" value="{:C('pin_site_slogan')}"></td>
+        </tr>
+        <tr>
+            <th>{:L('seo_title')} :</th>
+            <td><input type="text" name="setting[site_title]" class="input-text" size="50" value="{:C('pin_site_title')}"></td>
+        </tr>
+        <tr>
+            <th>{:L('seo_keys')} :</th>
+            <td><input type="text" name="setting[site_keyword]" class="input-text" size="50" value="{:C('pin_site_keyword')}"></td>
+        </tr>
+        <tr>
+            <th>{:L('seo_desc')} :</th>
+            <td><textarea rows="3" cols="50" name="setting[site_description]">{:C('pin_site_description')}</textarea></td>
+        </tr>
+        <tr>
+            <th>{:L('site_icp')} :</th>
+            <td><input type="text" name="setting[site_icp]" class="input-text" size="50" value="{:C('pin_site_icp')}"></td>
+        </tr>
+        <tr>
+            <th>{:L('statistics_code')} :</th>
+            <td><textarea rows="3" cols="50" name="setting[statistics_code]">{:C('pin_statistics_code')}</textarea></td>
+        </tr>
+		<tr>
+            <th>网址 :</th>
+            <td><input type="text" name="setting[site_url]" class="input-text" size="50" value="{:C('pin_site_url')}">不带http://</td>
+        </tr>
+		<tr>
+            <th>地址 :</th>
+            <td><input type="text" name="setting[address]" class="input-text" size="50" value="{:C('pin_address')}"></td>
+        </tr>
+		<tr>
+            <th>Email :</th>
+            <td><input type="text" name="setting[email]" class="input-text" size="50" value="{:C('pin_email')}"></td>
+        </tr>
+		<tr>
+            <th>电话 :</th>
+            <td><input type="text" name="setting[tel]" class="input-text" size="50" value="{:C('pin_tel')}"></td>
+        </tr>
+        <tr>
+            <th>传真 :</th>
+            <td><input type="text" name="setting[fax]" class="input-text" size="50" value="{:C('pin_fax')}"></td>
+        </tr>
+		<tr>
+            <th>手机 :</th>
+            <td><input type="text" name="setting[mobile]" class="input-text" size="50" value="{:C('pin_mobile')}"></td>
+        </tr>
+		<tr>
+            <th>QQ :</th>
+            <td><input type="text" name="setting[qq]" class="input-text" size="50" value="{:C('pin_qq')}"></td>
+        </tr>
+        <!--<tr>
+            <th>微信 :</th>
+            <td><input type="text" name="setting[weixin]" class="input-text" size="50" value="{:C('pin_weixin')}"></td>
+        </tr>-->
+        <tr>
+            <th>网站logo :</th>
+            <td>
+                <if condition="C('pin_logo')">
+                    <span class="attachment_icon J_attachment_icon" file-type="image" file-rel="{:attach(C('pin_logo'), 'logo')}">
+                    <img src="{:attach(C('pin_logo'),'logo')}" width="100" height="100" />
+                    </span><br />
+                </if>
+                <input type="file" name="logo" class="input-text"  style="width:200px;" />
+            </td>
+        </tr>
+        <tr>
+            <th>微信二维码 :</th>
+            <td>
+                <if condition="C('pin_qr')">
+                    <span class="attachment_icon J_attachment_icon" file-type="image" file-rel="{:attach(C('pin_qr'), 'logo')}">
+                    <img src="{:attach(C('pin_qr'),'logo')}" width="100" height="100" />
+                    </span><br />
+                </if>
+                <input type="file" name="qr" class="input-text"  style="width:200px;" />
+            </td>
+        </tr>
+    	<tr>
+        	<th>{:L('site_status')} :</th>
+        	<td>
+            	<label><input type="radio" class="J_change_status" <if condition="C('pin_site_status') eq '1'">checked="checked"</if> value="1" name="setting[site_status]"> {:L('open')}</label> &nbsp;&nbsp;
+                <label><input type="radio" class="J_change_status" <if condition="C('pin_site_status') eq '0'">checked="checked"</if> value="0" name="setting[site_status]"> {:L('close')}</label>
+            </td>
+    	</tr>
+        <tr id="J_closed_reason" <if condition="C('pin_site_status') eq 1">class="hidden"</if>>
+        	<th>{:L('closed_reason')} :</th>
+        	<td><textarea rows="4" cols="50" name="setting[closed_reason]" id="closed_reason">{:C('pin_closed_reason')}</textarea></td>
+    	</tr>
+        <tr>
+        	<th></th>
+        	<td><input type="hidden" name="menuid"  value="{$menuid}"/><input type="submit" class="btn btn_submit" value="{:L('submit')}"/></td>
+    	</tr>
+        <tr><th></th><td></td></tr><tr><th></th><td></td></tr><tr><th></th><td></td></tr><tr><th></th><td></td></tr><tr><th></th><td></td></tr>
+	</table>
+	</form>
+</div>
+<include file="Public:footer" />
+<script>
+$(function(){
+    $('.J_change_status').live('click', function(){
+        if($(this).val() == '0'){
+            $('#J_closed_reason').fadeIn();
+        }else{
+            $('#J_closed_reason').fadeOut();
+        }
+    });
+});
+</script>
+</body>
+</html>

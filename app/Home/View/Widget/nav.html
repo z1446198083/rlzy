@@ -1,0 +1,21 @@
+<div class="inner-auto heade clear">
+    <div class="fl logo"><a title="深圳市铁讯投资发展有限公司" href="__ROOT__/"><img src="{:attach(C('pin_logo'),'logo')}" alt="" /></a></div>
+    <div class="fr navigation">
+        <ul class="clear">
+            <li class="<if condition='ACTION_NAME EQ index'>new</if>">
+                <a href="__ROOT__/">
+                    <div>首页</div>
+                    <p>HOME</p>
+                </a>
+            </li>
+            <volist name="nav" id="v">
+                <li class="<if condition='ACTION_NAME EQ $v[url]'>new</if>">
+                    <a href="{:U($v['url'])}">
+                        <div>{$v.name}</div>
+                        <p>{$v.alias}</p>
+                    </a>
+                </li>
+            </volist>
+        </ul>
+    </div>
+</div>

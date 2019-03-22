@@ -1,0 +1,17 @@
+ <include file="Public:header" />
+ <style>
+ 	.xwq-order{padding:1rem; overflow:hidden;}
+	.xwq-order p span{ font-weight:normal; text-align:right;padding-right:10px; color:#777;} 
+ </style>
+ <div class="xwq-order">
+   <form action="{:u('article/edits')}"  method="post">
+    <p><img src=" {:attach($info['url'], 'article')}" / width="260" height="160"></p>
+    <p style="margin-top:20px;"><span>排序:</span><input type="text" name="ordid" value="{$info['ordid']}" class="input-text" />
+    <input type="hidden" name="id" value="{$info['id']}" />
+    <input type="submit" value="提交" class="d-button d-state-highlight"/> 
+   </form>
+    </p>
+    </div>
+<body>
+</body>
+</html>

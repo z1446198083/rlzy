@@ -1,0 +1,32 @@
+
+ <include file="Public:header" />
+	<div class="J_tablelist table_list" >
+        <table width="100%" cellspacing="0">
+            <thead>
+            <tr>
+                <th width="25"><input type="checkbox" id="checkall_t" class="J_checkall"></th>
+                 
+                <th width="25"><span >ID</span></th>
+                <th width="80"><span >图片</span></th>
+                <th width="80"><span>{:L('sort_order')}</span></th>
+                <th width="80">{:L('operations_manage')}</th>
+            </tr>
+            </thead>
+    	   <tbody>
+           <volist name="list" id="val">
+            <tr>
+                <td align="center"><input type="checkbox" class="J_checkitem" value="{$val.id}"></td>
+                <td align="center">{$val['id']}</td>
+                <td align="center"><img src=" {:attach($val['url'], 'article')}" style="width:80px;height:60px;"></td>
+                <td align="center"><span >{$val.ordid}</span></td>
+                <td align="center"><a href="{:u('article/edits', array('id'=>$val['id'], 'menuid'=>$menuid))}">{:L('edit')}</a></td>
+                
+            </tr>
+            </volist>
+    	   </tbody>
+        </table>
+    </div>
+ 
+
+</body>
+</html>

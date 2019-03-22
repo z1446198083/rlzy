@@ -1,0 +1,45 @@
+<div class="friendship">
+    <div class="inner-auto">
+        友情链接：
+        <volist name="link" id="v">
+            <a href="{$v.url}">{$v.name}</a>
+        </volist>
+    </div>
+</div>
+
+<div class="foot">
+    <div class="inner-auto clear">
+        <ul class="clear fl foot-nav">
+            <volist name="tail" id="v">
+                <if condition="$v.id neq 4">
+                    <li>
+                        <p><a href="{:U($v['url'])}&id={$v.id}">{$v.name}</a></p>
+                        <ul>
+                            <li>
+                                <volist name="v['ii']" id="vo">
+                                    <p><a href="{:U($v['url'])}&id={$v.id}&tid={$vo.id}">{$vo.name}</a></p>
+                                </volist>
+                            </li>
+                        </ul>
+                    </li>
+                </if>
+            </volist>
+        </ul>
+        <div class="fl foot-caty">
+            <p>地址：{:C(pin_address)}</p>
+            <p>电话：{:C(pin_tel)}</p>
+            <p>{:C(pin_site_icp)}</p>
+            <p><a href="http://www.0791jr.com">{:C(tech)}</a></p>
+        </div>
+
+        <div class="fr foot-code">
+            <img src="{:attach(C(pin_qr), 'logo')}" alt="" />
+            <p>扫码关注公众号</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+

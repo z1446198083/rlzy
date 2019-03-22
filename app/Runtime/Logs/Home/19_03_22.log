@@ -1,0 +1,53 @@
+[ 2019-03-22T09:02:30+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000500s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003953s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002266s ]
+INFO: Run Common\Behavior\CheckLangBehavior [ RunTime:0.027768s ]
+NOTIC: [8] Use of undefined constant GROUP_NAME - assumed 'GROUP_NAME' D:\PHPTutorial\WWW\rlzy\app\Common\Behavior\load_langBehavior.class.php 第 29 行.
+INFO: Run Common\Behavior\load_langBehavior [ RunTime:0.011240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.047165s ]
+SQL: SHOW COLUMNS FROM `jrkj_setting` [ RunTime:0.0447s ]
+SQL: SELECT * FROM `jrkj_setting`  [ RunTime:0.0016s ]
+SQL: SHOW COLUMNS FROM `jrkj_article_cate` [ RunTime:0.0257s ]
+SQL: SELECT `id`,`name`,`url` FROM `jrkj_article_cate` WHERE `status` = 1 AND `is_home` = 1 AND `pid` = 0 ORDER BY ordid  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`name`,`url`,`pid` FROM `jrkj_article_cate` WHERE `status` = 1 AND `is_home` = 1 ORDER BY ordid  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `jrkj_ad` [ RunTime:0.1936s ]
+SQL: SELECT `content` FROM `jrkj_ad` WHERE `start_time` <= 1553216549 AND `end_time` >= 1553216549 AND `board_id` = 20 ORDER BY ordid LIMIT 1   [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `jrkj_article_cate` [ RunTime:0.0087s ]
+SQL: SELECT * FROM `jrkj_article_cate` WHERE `id` = 711 LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT * FROM `jrkj_article_cate` WHERE `pid` = 711 ORDER BY ordid  [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `jrkj_counter` [ RunTime:0.1553s ]
+SQL: UPDATE `jrkj_counter` SET `number`=number+1 WHERE ( id=1 ) [ RunTime:0.0008s ]
+SQL: SELECT * FROM `jrkj_counter` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0007s ]
+SQL: SELECT `content` FROM `jrkj_ad` WHERE `board_id` = 1 AND `status` = 1  [ RunTime:0.0007s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `jrkj_ad` WHERE `board_id` = 1 AND `status` = 1 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `jrkj_adboard` [ RunTime:0.1259s ]
+SQL: SELECT * FROM `jrkj_adboard` WHERE `id` = 4 AND `status` = 1 LIMIT 1   [ RunTime:0.0035s ]
+SQL: SELECT * FROM `jrkj_ad` WHERE `start_time` <= 1553216549 AND `end_time` >= 1553216549 AND `board_id` = 4  [ RunTime:0.0186s ]
+SQL: SELECT * FROM `jrkj_adboard` WHERE `id` = 5 AND `status` = 1 LIMIT 1   [ RunTime:0.0012s ]
+SQL: SELECT * FROM `jrkj_ad` WHERE `start_time` <= 1553216549 AND `end_time` >= 1553216549 AND `board_id` = 5  [ RunTime:0.0012s ]
+SQL: SELECT * FROM `jrkj_adboard` WHERE `id` = 6 AND `status` = 1 LIMIT 1   [ RunTime:0.0008s ]
+SQL: SELECT * FROM `jrkj_ad` WHERE `start_time` <= 1553216549 AND `end_time` >= 1553216549 AND `board_id` = 6  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `jrkj_article_cate` WHERE `id` = 19 AND `status` = 1 LIMIT 1   [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `jrkj_article` [ RunTime:0.0948s ]
+SQL: SELECT * FROM `jrkj_article` WHERE `cate_id` = 19 AND `status` = 1  [ RunTime:0.0012s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001678s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.005025s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.543727s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.546554s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002074s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004856s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003761s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006532s ]
+
+[ 2019-03-22T09:02:31+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000498s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004233s ]
+
